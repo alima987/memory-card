@@ -7,6 +7,9 @@ import { Characters } from './components/Cards/Cards'
 function App() {
 
   const [cards, setCards] = useState<Characters[]>([])
+  const [score, setScore] = useState(0)
+  const [bestScore, setBestScore] = useState(0)
+  const [clickedCard, setClickedCard] = useState<number[]>([])
 
   const getApiData = useCallback(
     async () => {
@@ -39,16 +42,31 @@ function App() {
     }
     return setCards(mixedCards)
   }
+  const currScore = (id: number) => {
+    if (clickedCard.length === 2) {
+      if (clickedCard[0] === clickedCard[1]) {
+        setScore(0); 
+      } else {
+        setScore(score + 1);
+      }
+      setClickedCard([]);
+    } else {
+      setClickedCard([...clickedCard, id]);
+    }
+  }
 
-  const handleClick = () => {
-    shuffle();
+  const handleClick = (id: number) => {
+      shuffle();
+      currScore(id);
   }
 
 
   return (
     <>
     <Header/>
-    <Cards cards={cards} onCardClick={() => handleClick()}/>
+    <h3>Score: {score}</h3>
+    <h3>Best score:</h3>
+    <Cards cards={cards} onCardClick={(id: number) => handleClick(id)}/>
     </>
   )
 }

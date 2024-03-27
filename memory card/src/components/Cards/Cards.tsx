@@ -6,14 +6,14 @@ export interface Characters {
   }
   interface CardsProps {
     cards: Characters[];
-    onCardClick: () => void;
+    onCardClick: (id: number) => void;
   }
 const Cards = ({cards, onCardClick}: CardsProps) => {
 
     return ( 
           <div className="cards">
             {cards.map((card) => (
-                <div key={card.id} className="card" onClick={onCardClick}>
+                <div key={card.id} className="card" onClick={() => onCardClick(card.id)}>
                 <img className="img_card" src={card.image}/>
                 <h3>{card.name}</h3>
                 </div>
