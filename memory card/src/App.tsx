@@ -43,17 +43,20 @@ function App() {
     return setCards(mixedCards)
   }
   const currScore = (id: number) => {
-    if (clickedCard.length === 2) {
-      if (clickedCard[0] === clickedCard[1]) {
-        setScore(0); 
-      } else {
-        setScore(score + 1);
+    if(clickedCard.includes(id)) {
+      if(score > bestScore) {
+        setBestScore(score)
       }
-      setClickedCard([]);
+      setScore(0)
+      setClickedCard([])
+      return 
     } else {
-      setClickedCard([...clickedCard, id]);
+      setScore(score + 1)
+      setClickedCard([...clickedCard, id])
     }
+
   }
+
 
   const handleClick = (id: number) => {
       shuffle();
@@ -65,7 +68,7 @@ function App() {
     <>
     <Header/>
     <h3>Score: {score}</h3>
-    <h3>Best score:</h3>
+    <h3>Best score: {bestScore}</h3>
     <Cards cards={cards} onCardClick={(id: number) => handleClick(id)}/>
     </>
   )
