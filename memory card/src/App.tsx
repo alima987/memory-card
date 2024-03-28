@@ -2,11 +2,11 @@ import { useCallback, useEffect, useState } from 'react'
 import './App.css'
 import Cards from './components/Cards/Cards'
 import Header from './components/Hearder/Header'
-import { Characters } from './components/Cards/Cards'
+import { Character } from './components/Cards/Cards'
 
 function App() {
 
-  const [cards, setCards] = useState<Characters[]>([])
+  const [cards, setCards] = useState<Character[]>([])
   const [score, setScore] = useState(0)
   const [bestScore, setBestScore] = useState(0)
   const [clickedCard, setClickedCard] = useState<number[]>([])
@@ -20,8 +20,8 @@ function App() {
           throw new Error('Failed to fetch data');
         }
         const data = await response.json();
-        const cardResult = data.results
-        setCards(cardResult);
+        const characterData = data.results.slice(0, 12);
+        setCards(characterData);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -67,9 +67,7 @@ function App() {
 
   return (
     <>
-    <Header/>
-    <h3>Score: {score}</h3>
-    <h3>Best score: {bestScore}</h3>
+    <Header score={score} bestScore={bestScore}/>
     <Cards cards={cards} onCardClick={(id: number) => handleClick(id)}/>
     </>
   )

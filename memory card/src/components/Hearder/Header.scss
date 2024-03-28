@@ -1,14 +1,28 @@
 .header {
     font-family: fantasy;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
     .header-title {
-        font-size: 7em;
+        font-size: 6em;
         background: linear-gradient(to bottom, #94c6e7, #fdf26e);
-        background-clip: text; /* Фон внутри текста */
+        background-clip: text;
         color: transparent; 
     }
     .text {
-        font-size: 2em;
+        font-size: 1.5em;
         color: #75bff1;
     }
+    .score{
+        position: absolute;
+        top: 63px;
+        left: 1130px;
+    }
+    .best-score {
+        position: absolute;
+        top: 99px;
+        left: 1131px;
+    }
+
 }

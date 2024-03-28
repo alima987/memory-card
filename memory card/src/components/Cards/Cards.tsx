@@ -1,11 +1,10 @@
 import "./Cards.scss";
-export interface Characters {
+export interface Character {
     id: number;
     image: string;
-    name: string;
   }
   interface CardsProps {
-    cards: Characters[];
+    cards: Character[];
     onCardClick: (id: number) => void;
   }
 const Cards = ({cards, onCardClick}: CardsProps) => {
@@ -15,7 +14,6 @@ const Cards = ({cards, onCardClick}: CardsProps) => {
             {cards.map((card) => (
                 <div key={card.id} className="card" onClick={() => onCardClick(card.id)}>
                 <img className="img_card" src={card.image}/>
-                <h3>{card.name}</h3>
                 </div>
             ))}
           </div>   
