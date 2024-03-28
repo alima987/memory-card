@@ -49,6 +49,7 @@ function App() {
       }
       setScore(0)
       setClickedCard([])
+      alert('')
       return 
     } else {
       setScore(score + 1)

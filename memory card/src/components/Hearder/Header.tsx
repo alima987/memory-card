@@ -1,10 +1,10 @@
-
+import './Header.scss';
 const Header = () => {
     return (
         <>
-        <div>
-        <h2>Memory Game</h2>
-        <p>Get points by clicking on an image but don't click on any more than once!</p>
+        <div className="header">
+        <h2 className="header-title">Memory Game</h2>
+        <p className="text">Get points by clicking on an image but don't click on any more than once!</p>
         </div>
         </>
     )
