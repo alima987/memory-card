@@ -3,6 +3,7 @@ import './App.css'
 import Cards from './components/Cards/Cards'
 import Header from './components/Hearder/Header'
 import { Character } from './components/Cards/Cards'
+import Modal from './components/Modal'
 
 function App() {
 
@@ -10,6 +11,8 @@ function App() {
   const [score, setScore] = useState(0)
   const [bestScore, setBestScore] = useState(0)
   const [clickedCard, setClickedCard] = useState<number[]>([])
+  const [isGameOver, setGameOver] = useState(false)
+  const [isWin, setIsWin] = useState(false)
 
   const getApiData = useCallback(
     async () => {
@@ -47,17 +50,28 @@ function App() {
       if(score > bestScore) {
         setBestScore(score)
       }
-      setScore(0)
-      setClickedCard([])
-      alert('')
+      resetGame()
+      setGameOver(true)
+      setIsWin(false)
       return 
     } else {
-      setScore(score + 1)
+      const newScore = score + 1;
+      setScore(newScore)
       setClickedCard([...clickedCard, id])
+      if (newScore == 12) {
+        setGameOver(true);
+        setIsWin(true);
+        setBestScore(12)
+        resetGame()
     }
 
   }
+}
 
+  const resetGame = () => {
+    setScore(0)
+    setClickedCard([])
+  }
 
   const handleClick = (id: number) => {
       shuffle();
@@ -67,8 +81,9 @@ function App() {
 
   return (
     <>
-    <Header score={score} bestScore={bestScore}/>
-    <Cards cards={cards} onCardClick={(id: number) => handleClick(id)}/>
+     <Header score={score} bestScore={bestScore} />
+    <Cards cards={cards} onCardClick={(id: number) => handleClick(id)} />
+    <Modal isGameOver={isGameOver} setGameOver={setGameOver} isWin={isWin} setIsWin={setIsWin}/> 
     </>
   )
 }
