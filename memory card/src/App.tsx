@@ -33,7 +33,7 @@ function App() {
 
   const shuffle = () => {
     let currentI = cards.length - 1
-    let mixedCards = [...cards]
+    const mixedCards = [...cards]
     let j
     while (currentI > 0) {
       j = Math.floor(Math.random() * (currentI + 1))
