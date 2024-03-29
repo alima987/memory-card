@@ -1,0 +1,100 @@
+.header {
+    font-family: fantasy;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0px 134px;
+
+    .header-title {
+        font-size: 7em;
+        background: linear-gradient(to bottom, #94c6e7, #fdf26e);
+        background-clip: text;
+        color: transparent; 
+        margin-bottom: -25px;
+    }
+    .text {
+        font-size: 1.3em;
+        color: #75bff1;
+        margin-bottom: 25px;
+    }
+    .score{
+        font-size: 2em;
+        position: absolute;
+        top: 8vh;
+        left: 74vw
+    }
+    .best-score {
+        font-size: 2em;
+        position: absolute;
+        top: 12vh;
+        left: 74vw;
+    }
+
+}
+@media ((max-width: 1280px) and (min-width: 768px)) {
+    .header {
+        margin: 0px 134px;
+    .header-title {
+       font-size: 7em;
+    }
+    .text {
+        font-size: 1.3em;
+    }
+    .score {
+        font-size: 2em;
+        top: 7vh;
+        left: 74vw
+    }
+    .best-score {
+        font-size: 2em;
+        top: 13vh;
+        left: 74vw;
+    }
+}
+}
+@media (max-width: 768px) {
+    .header {
+        margin: 0px 134px;
+    .header-title {
+        font-size: 4em;
+        margin-bottom: -5px;
+     }
+     .text {
+         font-size: 0.8em;
+         margin-bottom: 1px;
+     }
+     .score {
+        font-size: 1.3em;
+        top: 4vh;
+        left: 74vw
+    }
+    .best-score {
+        font-size: 1.3em;
+        top: 8vh;
+        left: 74vw;
+    }
+    }
+}
+@media (max-width: 320px) {
+    .header {
+        margin: 0;
+    .header-title {
+        font-size: 3em;
+        margin-bottom: -5px;
+     }
+     .text {
+         font-size: 0.5em;
+         margin-bottom: 1px;
+     }
+     .score {
+        font-size: 0.7em;
+        top: 4vh;
+        left: 81vw
+    }
+    .best-score {
+        font-size: 0.7em;
+        top: 8vh;
+        left: 81vw;
+    }
+    }
+}
