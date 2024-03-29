@@ -8,15 +8,15 @@ const Content = ({ isWin, setIsWin }: { isWin: boolean, setIsWin: (value: boolea
     setIsWin(true)
     content = (
         <>
-            <img src={won}></img>
-            You won!
+            <img className="modal-img" src={won}></img>
+            <div>You won!</div>
         </>
     )
   } else {
     setIsWin(false)
     content = (
         <>
-            <img src={lost}></img>
+            <img className="modal-img" src={lost}></img>
             <div>Game Over</div>
        </>
     )

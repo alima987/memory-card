@@ -11,9 +11,10 @@
   }
   
   .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
+    background-color: #fad;
+    padding: 2px;
+    border-bottom-left-radius: 37px;
+    border-bottom-right-radius: 37px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   
@@ -26,15 +27,18 @@
   }
   
   .modal-content button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
+    padding: 4px 12px;
+    margin: 7px;
+    background-color: white;
+    color: #030303;
     border: none;
-    border-radius: 3px;
+    border-radius: 9px;
     cursor: pointer;
   }
   
   .modal-content button:hover {
     background-color: #0056b3;
   }
-  
+  .modal-img{
+    width: 34vw;
+  }
