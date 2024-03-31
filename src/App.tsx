@@ -41,10 +41,14 @@ function App() {
     while (currentI > 0) {
       j = Math.floor(Math.random() * (currentI + 1))
       currentI --
-      [mixedCards[currentI], mixedCards[j]] = [mixedCards[j], mixedCards[currentI]]
+      if (Array.isArray(mixedCards[j]) && Array.isArray(mixedCards[currentI])) {
+        [mixedCards[currentI], mixedCards[j]] = [mixedCards[j], mixedCards[currentI]];
+      }
+      
     }
     return setCards(mixedCards)
   }
+
   const currScore = (id: number) => {
     if(clickedCard.includes(id)) {
       if(score > bestScore) {
