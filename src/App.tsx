@@ -34,20 +34,18 @@ function App() {
     getApiData();
   }, [getApiData])
 
-  const shuffle = () => {
-    let currentI = cards.length - 1
-    const mixedCards = [...cards]
-    let j
+  const shuffle = (): void => {
+    let currentI: number = cards.length - 1;
+    const mixedCards: Character[] = [...cards];
+    let j: number;
     while (currentI > 0) {
-      j = Math.floor(Math.random() * (currentI + 1))
-      currentI --
-      if (Array.isArray(mixedCards[j]) && Array.isArray(mixedCards[currentI])) {
+        j = Math.floor(Math.random() * (currentI + 1));
+        currentI--;
         [mixedCards[currentI], mixedCards[j]] = [mixedCards[j], mixedCards[currentI]];
-      }
-      
     }
-    return setCards(mixedCards)
-  }
+    setCards(mixedCards);
+};
+
 
   const currScore = (id: number) => {
     if(clickedCard.includes(id)) {
